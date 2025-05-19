@@ -28,5 +28,6 @@ struct ContentView: View {
             content.camera = .spatialTracking
         }
         .edgesIgnoringSafeArea(.all)
+        .onTapGesture {}
     }
 }
