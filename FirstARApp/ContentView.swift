@@ -5,14 +5,12 @@
 //  Created by Development on 2025/05/19.
 //
 
-import SwiftUI
 import RealityKit
+import SwiftUI
 
-struct ContentView : View {
-
+struct ContentView: View {
     var body: some View {
         RealityView { content in
-
             // Create a cube model
             let model = Entity()
             let mesh = MeshResource.generateBox(size: 0.1, cornerRadius: 0.005)
@@ -28,13 +26,7 @@ struct ContentView : View {
             content.add(anchor)
 
             content.camera = .spatialTracking
-
         }
         .edgesIgnoringSafeArea(.all)
     }
-
-}
-
-#Preview {
-    ContentView()
 }
