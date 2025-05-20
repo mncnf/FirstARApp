@@ -9,6 +9,8 @@ import RealityKit
 import SwiftUI
 
 struct ContentView: View {
+    @State var isCubeRed = false
+
     var body: some View {
         RealityView { content in
             // Create a cube model
@@ -28,6 +30,8 @@ struct ContentView: View {
             content.camera = .spatialTracking
         }
         .edgesIgnoringSafeArea(.all)
-        .onTapGesture {}
+        .onTapGesture {
+            isCubeRed = true
+        }
     }
 }
