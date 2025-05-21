@@ -16,7 +16,8 @@ struct ContentView: View {
             // Create a cube model
             let model = Entity()
             let mesh = MeshResource.generateBox(size: 0.1, cornerRadius: 0.005)
-            let material = SimpleMaterial(color: .gray, roughness: 0.15, isMetallic: true)
+            let color: UIColor = isCubeRed ? .red : .gray
+            let material = SimpleMaterial(color: color, roughness: 0.15, isMetallic: true)
             model.components.set(ModelComponent(mesh: mesh, materials: [material]))
             model.position = [0, 0.05, 0]
 
@@ -30,6 +31,7 @@ struct ContentView: View {
             content.camera = .spatialTracking
         }
         .edgesIgnoringSafeArea(.all)
+        .id(isCubeRed) // 追加: isCubeRedが変わるたびに再描画
         .onTapGesture {
             isCubeRed = true
         }
